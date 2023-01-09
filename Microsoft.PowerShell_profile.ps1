@@ -203,6 +203,8 @@ function Open-Application {
                     Start-Process "snippingtool"
                 } elseif ($Name -eq "pcb") {
                     Start-Process "C:\Cadence\SPB_17.2\tools\bin\allegro.exe"
+                } elseif ($Name -eq "lmtools") {
+                    Start-Process "C:\Cadence\LicenseManager\Lmtools.exe"
                 } elseif ($Name -eq "capture") {
                     Start-Process "C:\Cadence\SPB_17.2\tools\bin\capture.exe"
                 } elseif ($Name -eq "pad") {
@@ -422,6 +424,19 @@ function Package-File {
                         Write-Host "Zip file created successfully.";
                     }
                     Remove-Item $tDirectory -Force -Recurse;
+                }
+            }
+}
+
+# Objective: [IMPROVEMENTS] include a diagnostics. Check if the folder is for Schematic or Layout. Provide possible solution.
+function Get-DesignPack {
+    [CmdletBinding(SupportsShouldProcess)]
+        param([string]$Name)
+            process {
+                if ($Name.ToLower() -eq "schematic" -or $Name.ToLower() -eq "sch") {
+                    Get-ChildItem *.DSN,*.OPJ,*.NET,*.DRC,*.BOM,*.xlsx,*.OLB,*.PDF
+                } elseif ($Name.ToLower() -eq "pcb") {
+                    Get-ChildItem *.PDF,*.art
                 }
             }
 }
