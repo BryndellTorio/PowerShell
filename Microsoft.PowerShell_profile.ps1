@@ -144,11 +144,11 @@ function Build-Project {
                         else {
                             New-item -Name $Name -Path . -ItemType Directory -ErrorAction Ignore
                                 "Design Files", "Documents" | ForEach-Object { New-item -Name "$_" -Path ".\$Name" -ItemType "Directory" -ErrorAction "Ignore" }
+                                "PCB", "Firmware", "Verification" | ForEach-Object { New-item -Name "$_" -Path ".\$Name\Design Files" -ItemType "Directory" -ErrorAction "Ignore" }
                                 "Schematic", "Layout" | ForEach-Object { New-item -Name "$_" -Path ".\$Name\Design Files\PCB" -ItemType "Directory" -ErrorAction "Ignore" }
                                 "3D models" | ForEach-Object { New-item -Name "$_" -Path ".\$Name\Design Files\PCB\Layout" -ItemType "Directory" -ErrorAction "Ignore" }
-                                "Verification" | ForEach-Object { New-item -Name "$_" -Path ".\$Name\Design Files" -ItemType "Directory" -ErrorAction "Ignore" }
                                 "Simulation", "Design Checklist", "Test" | ForEach-Object { New-item -Name "$_" -Path ".\$Name\Design Files\Verification" -ItemType "Directory" -ErrorAction "Ignore" }
-                                "Datasheet", "Reports", "Reviews", "Meeting Notes" | ForEach-Object { New-Item -Name "$_" -Path ".\$Name\Documents" -ItemType "Directory" -ErrorAction "Ignore" }
+                                "Datasheet", "Reports", "Reviews", "Meeting Notes", "Images" | ForEach-Object { New-Item -Name "$_" -Path ".\$Name\Documents" -ItemType "Directory" -ErrorAction "Ignore" }
                                 Write-Output "`n[$Name project sub-folders generated.]"
                         }
                     } else {
