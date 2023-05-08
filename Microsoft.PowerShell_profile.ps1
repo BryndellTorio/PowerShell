@@ -261,14 +261,16 @@ function Open-Application {
                     Start-Process "C:\Users\bryndell.torio\Desktop\installers\Viewplot20_latest\viewplot-beta.exe"
                 } elseif ($Name -eq "smith") {
                     Start-Process "C:\Program Files (x86)\Smith V4.1\Smith V4.1.exe"
+                } elseif ($Name -eq "altium") {
+                    Start-Process "C:\Program Files\Altium\AD23\X2.EXE"
                 } else {
                     Write-Warning "[$Name not found.]" 
                 }
             }
 }
+
 Set-Alias -name open -value Open-Application
 Set-Alias -name ltspice -value "C:\Program Files\LTC\LTspiceXVII\XVIIx64.exe"
-
 function Close-Application {
     param ( 
             [string]$Name
