@@ -2,13 +2,11 @@
 #Paste: System Clipboard to Vim "+p.
 Import-Module posh-git
 
-# New-Alias -Name python -Value 'C:\Python310\python.exe'
-# New-Alias -Name python3 -Value 'C:\Python310\python.exe'
-
 $env:Path += ";C:\Users\bryndell.torio\Documents\PowerShell\Custom"
 
 #variable defined for quick folder switch.
 [string]$PRJDIR = "$HOME\OneDrive - Integrated Micro-Electronics Inc\Design\Projects\"
+[string]$TRAINDIR = "$HOME\OneDrive - Integrated Micro-Electronics Inc\Design\Training\"
 [string]$prof = "$HOME\Documents\PowerShell\Microsoft.PowerShell_profile.ps1"
 [string]$fwDir = "$HOME\Firmware\eco-link"
 [string]$sampleDir = "$HOME\Firmware\eco-link\zephyr\samples\"
@@ -438,7 +436,7 @@ function Get-DesignPack {
                 if ($Name.ToLower() -eq "schematic" -or $Name.ToLower() -eq "sch") {
                     Get-ChildItem *.DSN,*.OPJ,*.NET,*.DRC,*.BOM,*.xlsx,*.OLB,*.PDF
                 } elseif ($Name.ToLower() -eq "pcb") {
-                    Get-ChildItem *.PDF,*.art
+                    Get-ChildItem *.PDF,*.art,*.drl*
                 }
             }
 }
