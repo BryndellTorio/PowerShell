@@ -146,7 +146,7 @@ function Build-Project {
                                 "Schematic", "Layout" | ForEach-Object { New-item -Name "$_" -Path ".\$Name\Design Files\PCB" -ItemType "Directory" -ErrorAction "Ignore" }
                                 "3D models" | ForEach-Object { New-item -Name "$_" -Path ".\$Name\Design Files\PCB\Layout" -ItemType "Directory" -ErrorAction "Ignore" }
                                 "Simulation", "Design Checklist", "Test" | ForEach-Object { New-item -Name "$_" -Path ".\$Name\Design Files\Verification" -ItemType "Directory" -ErrorAction "Ignore" }
-                                "Datasheet", "Reports", "Reviews", "Meeting Notes", "Images" | ForEach-Object { New-Item -Name "$_" -Path ".\$Name\Documents" -ItemType "Directory" -ErrorAction "Ignore" }
+                                "Datasheet", "Reports", "Reviews", "Meeting Notes", "Images", "References" | ForEach-Object { New-Item -Name "$_" -Path ".\$Name\Documents" -ItemType "Directory" -ErrorAction "Ignore" }
                                 Write-Output "`n[$Name project sub-folders generated.]"
                         }
                     } else {
