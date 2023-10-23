@@ -2,7 +2,8 @@
 #Paste: System Clipboard to Vim "+p.
 Import-Module posh-git
 
-$env:Path += ";C:\Users\bryndell.torio\Documents\PowerShell\Custom"
+$env:Path += ";C:\Users\bryndell.torio\Documents\PowerShell\Custom;C:\Users\Bryndell.Torio\.platformio\penv\Scripts"
+
 
 #variable defined for quick folder switch.
 [string]$PRJDIR = "$HOME\OneDrive - Integrated Micro-Electronics Inc\Design\Projects\"
