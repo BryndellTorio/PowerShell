@@ -18,6 +18,7 @@ function toff { shutdown /p }
 Set-Alias shortcut 'toff'
 function reset { shutdown /r }
 Set-Alias shortcut 'reset'
+function pwd { echo %cd% }
 
 
 # function admin {	
@@ -261,6 +262,12 @@ function Open-Application {
                     Start-Process "C:\Program Files (x86)\Smith V4.1\Smith V4.1.exe"
                 } elseif ($Name -eq "altium") {
                     Start-Process "C:\Program Files\Altium\AD23\X2.EXE"
+                } elseif ($Name -eq "jflashlite") {
+                    Start-Process "C:\Program Files\SEGGER\JLink\JFlashLite.exe"
+                } elseif ($Name -eq "jflash") {
+                    Start-Process "C:\Program Files\SEGGER\JLink\JFlash.exe"
+                } elseif ($Name -eq "putty") {
+                    Start-Process "C:\Program Files\PuTTY\putty.exe"
                 } else {
                     Write-Warning "[$Name not found.]" 
                 }
